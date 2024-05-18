@@ -1,0 +1,12 @@
+.form {
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 30px;
+}
+.field {
+  width: 400px;
+  height: 30px;
+  border-radius: 10px;
+}
