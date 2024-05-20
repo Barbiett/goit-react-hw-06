@@ -23,19 +23,19 @@ const contactsList = [
   { id: "id-3", name: "Eden Clements", number: "645-17-79" },
   { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
 ];
-const localStorageKey = "saved-contacts";
+// const localStorageKey = "saved-contacts";
 
 export default function App() {
-  const initContacts = () => {
-    const lsData = JSON.parse(localStorage.getItem(localStorageKey));
-    if (lsData) return lsData;
-    return contactsList;
-  };
-  useEffect(() => {
-    localStorage.setItem(localStorageKey, JSON.stringify(contacts)), [contacts];
-  });
+  // const initContacts = () => {
+  //   const lsData = JSON.parse(localStorage.getItem(localStorageKey));
+  //   if (lsData) return lsData;
+  //   return contactsList;
+  // };
+  // useEffect(() => {
+  //   localStorage.setItem(localStorageKey, JSON.stringify(contacts)), [contacts];
+  // });
 
-  const [contacts, setContacts] = useState(initContacts);
+  const [contacts, setContacts] = useState(contactsList);
   const [filter, setFilter] = useState("");
 
   function addContact(newContact) {
@@ -43,11 +43,11 @@ export default function App() {
       return [...prevContacts, newContact];
     });
   }
-  function deleteContact(contactId) {
-    setContacts((prevContacts) => {
-      return prevContacts.filter((contact) => contact.id !== contactId);
-    });
-  }
+  // function deleteContact(contactId) {
+  //   setContacts((prevContacts) => {
+  //     return prevContacts.filter((contact) => contact.id !== contactId);
+  //   });
+  // }
   const visibleContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
@@ -57,7 +57,10 @@ export default function App() {
       <h1 className={css.header}>Phonebook</h1>
       <ContactForm UserSchema={UserSchema} addContact={addContact} />
       <SearchBox value={filter} onFilter={setFilter} />
-      <ContactList contacts={visibleContacts} deleteContact={deleteContact} />
+      <ContactList
+        contacts={visibleContacts}
+        // deleteContact={deleteContact}
+      />
     </div>
   );
 }
