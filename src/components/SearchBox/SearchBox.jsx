@@ -9,9 +9,7 @@ export default function SearchBox() {
   const dispatch = useDispatch();
   const value = useSelector(selectNameFilter);
   const userNameIdSearcBox = useId();
-  function handleChange(e) {
-    dispatch(changeFilter(e.target.value));
-  }
+
   return (
     <Formik
       initialValues={{
@@ -26,7 +24,7 @@ export default function SearchBox() {
             name="username"
             id={userNameIdSearcBox}
             value={value}
-            onChange={handleChange}
+            onChange={(e) => dispatch(changeFilter(e.target.value))}
           ></Field>
         </div>
       </Form>

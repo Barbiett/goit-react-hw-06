@@ -15,12 +15,7 @@ export default function ContactForm({ UserSchema }) {
   const prefixedId = prefix + randomId;
 
   function handleSubmit(values, actions) {
-    addContact({
-      id: prefixedId,
-      name: values.username,
-      number: values.usernumber,
-    });
-    const { username: name, userNumber: number } = values;
+    const { username: name, usernumber: number } = values;
     const newContact = { name, number, prefixedId };
     dispatch(addContact(newContact));
     actions.resetForm();
