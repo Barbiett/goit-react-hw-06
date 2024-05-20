@@ -9,9 +9,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-
 import { configureStore } from "@reduxjs/toolkit";
-
 import contactsReducer from "./contactsSlice.js";
 import filtersReducer from "./filtersSlice.js";
 

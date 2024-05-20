@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App/App.jsx";
-// ================
+
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { persistor, store } from "./redux/store.js";
-// ============
 
 import "./styles.css";
 

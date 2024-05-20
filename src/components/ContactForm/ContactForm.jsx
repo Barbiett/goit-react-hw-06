@@ -19,17 +19,17 @@ const UserSchema = Yup.object().shape({
 });
 
 export default function ContactForm() {
-  const dispatch = useDispatch();
-  const userNameId = useId();
   const userNamumberId = useId();
-  const idLength = 10;
-  const prefix = "user_";
-  const randomId = nanoid(idLength);
-  const prefixedId = prefix + randomId;
+  const userNameId = useId();
+  const dispatch = useDispatch();
 
   function handleSubmit(values, actions) {
-    const { username: name, usernumber: number } = values;
-    const newContact = { name, number, prefixedId };
+    const newContact = {
+      name: values.username,
+      number: values.usernumber,
+      id: nanoid(),
+    };
+
     dispatch(addContact(newContact));
     actions.resetForm();
   }
